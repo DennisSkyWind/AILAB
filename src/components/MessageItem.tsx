@@ -3,8 +3,8 @@ import type { ChatMessage } from "../types"
 import MarkdownIt from "markdown-it"
 // @ts-ignore
 import mdKatex from "markdown-it-katex"
-import mdHighlight from "markdown-it-highlightjs" 
-import Clipboard from "./Clipboard"
+import mdHighlight from "markdown-it-highlightjs"
+// import Clipboard from "./Clipboard"
 import { preWrapperPlugin } from "../markdown"
 import "../styles/message.css"
 import { useCopyCode } from "../hooks"
@@ -32,27 +32,13 @@ export default ({ role, message }: Props) => {
         inline: true
       })
       .use(preWrapperPlugin)
-      .set({
-           "code:class": "language-text"
-          })
-    .set({
-          "pre:class": "line-numbers"
-          })
-  /*  if (typeof message === "function") {
+
+    if (typeof message === "function") {
       return md.render(message().trim())
     } else if (typeof message === "string") {
       return md.render(message.trim())
-      //return message.trim()
     }
-    return ""*/
-  if (typeof message === "function") {
-                md = md.parse(message().trim());
-     } else if (typeof message === "string") {
-                 md = md.parse(message.trim());
-          } else {
-              return "";
-                   }
-  return md.map((token) => token.markup + token.content).join("");
+    return ""
   }
 
   // createEffect(() => {
@@ -72,7 +58,7 @@ export default ({ role, message }: Props) => {
         class="message prose prose-slate dark:prose-invert dark:text-slate break-words overflow-hidden"
         innerHTML={htmlString()}
       />
-      { <Clipboard
+      {/* <Clipboard
         message={(() => {
           if (typeof message === "function") {
             return message().trim()
@@ -81,7 +67,7 @@ export default ({ role, message }: Props) => {
           }
           return ""
         })()}
-      /> }
+      /> */}
     </div>
   )
 }
