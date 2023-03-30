@@ -38,13 +38,21 @@ export default ({ role, message }: Props) => {
     .set({
           "pre:class": "line-numbers"
           })
-    if (typeof message === "function") {
+  /*  if (typeof message === "function") {
       return md.render(message().trim())
     } else if (typeof message === "string") {
       return md.render(message.trim())
       //return message.trim()
     }
-    return ""
+    return ""*/
+  if (typeof message === "function") {
+                md = md.parse(message().trim());
+     } else if (typeof message === "string") {
+                 md = md.parse(message.trim());
+          } else {
+              return "";
+                   }
+  return md.map((token) => token.markup + token.content).join("");
   }
 
   // createEffect(() => {
