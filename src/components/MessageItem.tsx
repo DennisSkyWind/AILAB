@@ -3,8 +3,7 @@ import type { ChatMessage } from "../types"
 import MarkdownIt from "markdown-it"
 // @ts-ignore
 import mdKatex from "markdown-it-katex"
-import mdHighlight from "markdown-it-highlightjs"
-// import Clipboard from "./Clipboard"
+import mdHighlight from "markdown-it-highlightjs" import Clipboard from "./Clipboard"
 import { preWrapperPlugin } from "../markdown"
 import "../styles/message.css"
 import { useCopyCode } from "../hooks"
@@ -72,7 +71,7 @@ export default ({ role, message }: Props) => {
         class="message prose prose-slate dark:prose-invert dark:text-slate break-words overflow-hidden"
         innerHTML={htmlString()}
       />
-      {/* <Clipboard
+      { <Clipboard
         message={(() => {
           if (typeof message === "function") {
             return message().trim()
@@ -81,7 +80,7 @@ export default ({ role, message }: Props) => {
           }
           return ""
         })()}
-      /> */}
+      /> }
     </div>
   )
 }
