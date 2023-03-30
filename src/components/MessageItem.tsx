@@ -36,8 +36,8 @@ export default ({ role, message }: Props) => {
     if (typeof message === "function") {
       return md.render(message().trim())
     } else if (typeof message === "string") {
-      //return md.render(message.trim())
-      return message.trim()
+      return md.render(message.trim())
+      //return message.trim()
     }
     return ""
   }
