@@ -24,8 +24,8 @@ export default ({ role, message }: Props) => {
 
   const htmlString = () => {
     const md = MarkdownIt({
-      html: false,
-      linkify: false
+      html: true,
+      linkify: true
     })
       .use(mdKatex)
       .use(mdHighlight, {
