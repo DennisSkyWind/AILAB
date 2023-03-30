@@ -32,7 +32,12 @@ export default ({ role, message }: Props) => {
         inline: true
       })
       .use(preWrapperPlugin)
-
+      .set({
+           "code:class": "language-text"
+          })
+    .set({
+          "pre:class": "line-numbers"
+          })
     if (typeof message === "function") {
       return md.render(message().trim())
     } else if (typeof message === "string") {
