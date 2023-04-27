@@ -32,8 +32,8 @@ export const post: APIRoute = async context => {
     return new Response("没有输入任何文字")
   }
 
- const completion = await fetch("https://api.openai.com/v1/chat/completions", {
-//const completion = await fetch("https://api.kmailab.buzz/v1/chat/completions", {
+ //const completion = await fetch("https://api.openai.com/v1/chat/completions", {
+const completion = await fetch("https://api.kpcai.buzz/v1/chat/completions", {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${key}`
