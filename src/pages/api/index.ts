@@ -19,7 +19,8 @@ export const post: APIRoute = async ({ request }) => {
     }
   }
 
-  const response = await fetch(`https://api.openai.com/v1/chat/completions`, {
+ // const response = await fetch(`https://api.openai.com/v1/chat/completions`, {
+  const response = await fetch(`https://api.kpcai.buzz/v1/chat/completions`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${key}`,
